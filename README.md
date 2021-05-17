@@ -22,3 +22,12 @@ The texts in titles and bodies were preprocessed by:
 After the analysis, we carried out feature engineering by creating various attributes such as title and body length, type and number of emoticons, sentiment, LDA topic, and publication time as a number of minutes/hours/days since the beginning of the analysed period. A total of 50 different features were created.
 
 ## Phase 2: Image Attributes
+# Image features
+In this stage we created features from the images. Unfortunately some of them have been removed and replaced with placeholder. Images from i.redd.it were downloaded using the Reddit API. For images from outside Reddit, we used this library: https://github.com/mikf/gallery-dl
+
+After a brief analysis of what is actually in the images, we created the following features:
+- Placeholders (binary feature) whether a post had an image but it was removed and replaced with a placeholder 
+- Mean, median, standar deviation and quantiles values in grayscale and for each of the RGB channels and SV channels from HSV color representation
+- BagOfVisualWords - created by clustering the feature vectors obtained from the SIFT descriptor
+- Using pretrained Neural Networks to extract features - https://tfhub.dev/google/imagenet/mobilenet_v1_025_128/feature_vector/5
+- Features created on text extracted from images using pytesseract
