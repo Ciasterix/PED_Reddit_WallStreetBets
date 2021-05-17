@@ -30,3 +30,12 @@ After a brief analysis of what is actually in the images, we created the followi
 - BagOfVisualWords - created by clustering the feature vectors obtained from the SIFT descriptor
 - Using pretrained Neural Networks to extract features - https://tfhub.dev/google/imagenet/mobilenet_v1_025_128/feature_vector/5
 - Features created on text extracted from images using pytesseract
+
+## Phase 3: Feature Selection
+In this stage, we tried to limit the number of features. We considered rejection of features:
+- with too small variance,
+- too weakly correlated with the target variable,
+- by recursive feature elimination.
+
+In the end we used only the second method, because the first one rejected features we considered important, while the last one required training of a good model, which we did not manage yet at this stage.
+The number of features was reduced from **346 to 237**
