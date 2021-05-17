@@ -47,5 +47,7 @@ The number of features was reduced **from 346 to 237**
 ## Phase 4: Prediction of post popularity and verification of the results
 In this phase, we tried to fit a model to the data with which we could predict post popularity. It quickly became apparent that it was very difficult to train a regressor. We tested various models and the best, although still unsatisfactory result was achieved by **XGBRegressor**.
 However, a model for classification worked much better. It predicted a binary variable, that is, 0 as an unpopular post (score below threshold) and 1 as a popular post.
+
 After testing different values, we decided that a score of 100 would be the best threshold, which gave about 29% of the samples with the label 1. Finally, after **tuning the hyperparameters using random search**, the **XGBClassifier** model obtained about **82.9% balanced accuracy**, i.e. averaged over each of the two classes, as the dataset was unbalanced.
+
 Finally, we used **Lime** and **SHAP** methods to explain the decisions of the model and try to understand what features influence the popularity of the post.
